@@ -14,6 +14,11 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
+    @GetMapping("/")
+    public String login(){
+        return "authenticating successfully";
+    }
+
     /*
      * To Add Course
      *

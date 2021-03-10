@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AppService } from '../app.service';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-user',
@@ -20,7 +20,8 @@ export class UserComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private appService: AppService
+    private userService: UserService
+    
     ) { }
 
   ngOnInit(): void {
@@ -30,9 +31,10 @@ export class UserComponent implements OnInit {
     });
     this.userDeatailsFn();
 
-    this.appService.getAlluser().subscribe(res=>{
-      this.userTable = res.data;
-    })
+    this.userService.getAlluser().subscribe(res=>{
+      // console.log(res['data'])
+       this.userTable = res['data'];
+    }) 
   }
 
   closeIcone(){
@@ -67,11 +69,11 @@ export class UserComponent implements OnInit {
       return;
     }else{
       debugger;
-      this.appService.updateUser(this.updateUserDetails.value).subscribe(res=>{
+      this.userService.updateUser(this.updateUserDetails.value).subscribe(res=>{
         debugger;
-        this.appService.getAlluser().subscribe(res=>{
+        this.userService.getAlluser().subscribe(res=>{
           debugger;
-          this.userTable = res.data;
+          this.userTable = res['data'];
         })
       })
     }
@@ -80,9 +82,9 @@ export class UserComponent implements OnInit {
 
   submitFilter(){
     debugger;
-    this.appService.getUserById(this.contactForm.value).subscribe(res=>{
+    this.userService.getUserById(this.contactForm.value).subscribe(res=>{
       debugger;
-      this.userTable = res.data;
+      this.userTable = res['data'];
     })
   }
 
@@ -92,17 +94,17 @@ export class UserComponent implements OnInit {
     }else{
       debugger
       if(this.contactForm.value.name!=""){
-      this.appService.addUser(this.contactForm.value).subscribe(res=>{
-        this.appService.getAlluser().subscribe(res=>{
-          this.userTable = res.data;
+      this.userService.addUser(this.contactForm.value).subscribe(res=>{
+        this.userService.getAlluser().subscribe(res=>{
+          this.userTable = res['data'];
         })
       })
     }
     else{
       debugger;
-    this.appService.getUserById(this.contactForm.value).subscribe(res=>{
+    this.userService.getUserById(this.contactForm.value).subscribe(res=>{
       debugger;
-      this.userTable = res.data;
+      this.userTable = res['data'];
     })
     }
     }
@@ -113,10 +115,10 @@ export class UserComponent implements OnInit {
       userId : td.userId,
       name : td.userId
     }
-    this.appService.deleteUser(user).subscribe(res=>{
+    this.userService.deleteUser(user).subscribe(res=>{
     
-      this.appService.getAlluser().subscribe(res=>{
-        this.userTable = res.data;
+      this.userService.getAlluser().subscribe(res=>{
+        this.userTable = res['data'];
       })
     })
   }
