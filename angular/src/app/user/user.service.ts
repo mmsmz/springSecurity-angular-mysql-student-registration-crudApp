@@ -11,19 +11,25 @@ export class UserService {
 
   addUser(data){
     debugger;
-    return this.http.post("http://localhost:8087/addUser",data).pipe(
+    let username = 'foo';
+    let password = 'foo';
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.post("http://localhost:8087/addUser",data , {headers}).pipe(
       map((res:any)=> res));
   }
 
   updateUser(data){
-    return this.http.post("http://localhost:8087/updateUser",data).pipe(
+    let username = 'foo';
+    let password = 'foo';
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.post("http://localhost:8087/updateUser",data,{headers}).pipe(
       map((res:any)=> res));
   }
 
   getAlluser(){
     let username = 'foo';
     let password = 'foo';
-    const headers = new HttpHeaders({Authorization: 'Basic ' +btoa(username+":"+password)});
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.get("http://localhost:8087/getAllUsers", {headers});
   }
 
@@ -37,10 +43,12 @@ export class UserService {
   getUserById(data){
     debugger;
    // data.name="mg";
-    return this.http.get("http://localhost:8087/getUserById?userId="+data.userId).pipe(
+   let username = 'foo';
+   let password = 'foo';
+   const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.get("http://localhost:8087/getUserById?userId="+data.userId, {headers}).pipe(
       map((res:any)=> res));
   }
-
   
   // getUserById(data){
   //   let username = 'foo';
@@ -50,7 +58,10 @@ export class UserService {
   // }
 
   deleteUser(userDeatails){
-    return this.http.post("http://localhost:8087/deleteUser",userDeatails).pipe(
+    let username = 'foo';
+    let password = 'foo';
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.post("http://localhost:8087/deleteUser",userDeatails,{headers}).pipe(
       map((res:any)=> res));
   }
 

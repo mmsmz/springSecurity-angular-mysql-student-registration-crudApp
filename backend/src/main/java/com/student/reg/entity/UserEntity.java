@@ -12,8 +12,11 @@ public class UserEntity {
 	@Column(name = "Id")
 	private Integer id;
 
-	@Column(name = "Name")
-	private String name;
+	@Column(name = "username")
+	private String username;
+
+	@Column(name = "email")
+	private String email;
 
 	public Integer getId() {
 		return id;
@@ -23,11 +26,19 @@ public class UserEntity {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

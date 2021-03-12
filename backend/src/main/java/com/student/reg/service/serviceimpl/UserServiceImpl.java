@@ -27,7 +27,8 @@ public class UserServiceImpl implements UserService {
 	public String addUser(UserDTO userDTO) {
 		UserEntity user = new UserEntity();
 		user.setId(userDTO.getUserId());
-		user.setName(userDTO.getName());
+		user.setUsername(userDTO.getUsername());
+		user.setEmail(userDTO.getEmail());
 		userServiceRepository.save(user);
 		return "Inserted";
 	}
@@ -37,8 +38,9 @@ public class UserServiceImpl implements UserService {
 		UserEntity user = userServiceRepository.findById(userId).get();
 		UserDTO userDTO=new UserDTO();
 		userDTO.setUserId(user.getId());
-		userDTO.setName(user.getName());
-		List<UserDTO> list=new ArrayList<UserDTO>();
+		userDTO.setUsername(user.getUsername());
+		userDTO.setEmail(user.getEmail());
+		List<UserDTO> list=new ArrayList<>();
 		list.add(userDTO);
 		return list;
 	}
@@ -50,11 +52,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<UserDTO> getAllUsers() {
 		List<UserEntity> users = userServiceRepository.findAll();
-		List<UserDTO> userDTOs = new ArrayList<UserDTO>();
+		List<UserDTO> userDTOs = new ArrayList<>();
 		for (UserEntity user : users) {
 			UserDTO userDTO = new UserDTO();
 			userDTO.setUserId(user.getId());
-			userDTO.setName(user.getName());
+			userDTO.setUsername(user.getUsername());
+			userDTO.setEmail(user.getEmail());
 			userDTOs.add(userDTO);
 		}
 		return userDTOs;
@@ -71,7 +74,8 @@ public class UserServiceImpl implements UserService {
 	public String updateUser(UserDTO userDTO) {
 		UserEntity user = new UserEntity();
 		user.setId(userDTO.getUserId());
-		user.setName(userDTO.getName());
+		user.setUsername(userDTO.getUsername());
+		user.setEmail(userDTO.getEmail());
 		userServiceRepository.save(user);
 		return "Updated";
 	}
@@ -88,7 +92,8 @@ public class UserServiceImpl implements UserService {
 	public String deleteUser(UserDTO userDTO) {
 		UserEntity user = new UserEntity();
 		user.setId(userDTO.getUserId());
-		user.setName(userDTO.getName());
+		user.setUsername(userDTO.getUsername());
+		user.setEmail(userDTO.getEmail());
 		userServiceRepository.delete(user);
 		return "Deleted";
 	}

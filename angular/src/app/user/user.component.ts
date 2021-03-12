@@ -27,7 +27,8 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.contactForm = this.fb.group({
         userId: ['', [Validators.required]],
-        name: ['', [Validators.required]]
+        username: ['', [Validators.required]],
+        email: ['', [Validators.required]]
     });
     this.userDeatailsFn();
 
@@ -49,7 +50,8 @@ export class UserComponent implements OnInit {
   userDeatailsFn(){
     this.updateUserDetails = this.fb.group({
       userId: ['', [Validators.required]],
-      name: ['', [Validators.required]]
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required]]
     });
   }
 
@@ -61,7 +63,8 @@ export class UserComponent implements OnInit {
     // }
     debugger;
     this.updateUserDetails.controls['userId'].setValue(td.userId);
-    this.updateUserDetails.controls['name'].setValue(td.name);
+    this.updateUserDetails.controls['username'].setValue(td.username);
+    this.updateUserDetails.controls['email'].setValue(td.email);
   }
 
   onUpdate(){
@@ -93,7 +96,7 @@ export class UserComponent implements OnInit {
       return;
     }else{
       debugger
-      if(this.contactForm.value.name!=""){
+      if(this.contactForm.value.username&&this.contactForm.value.email!=""){
       this.userService.addUser(this.contactForm.value).subscribe(res=>{
         this.userService.getAlluser().subscribe(res=>{
           this.userTable = res['data'];
@@ -113,8 +116,10 @@ export class UserComponent implements OnInit {
   delete(td){
     let user = {
       userId : td.userId,
-      name : td.userId
+      username : td.username,
+      email : td.email
     }
+    debugger
     this.userService.deleteUser(user).subscribe(res=>{
     
       this.userService.getAlluser().subscribe(res=>{

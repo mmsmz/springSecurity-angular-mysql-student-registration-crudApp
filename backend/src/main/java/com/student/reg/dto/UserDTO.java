@@ -1,9 +1,10 @@
 package com.student.reg.dto;
 
 public class UserDTO {
-	private Integer userId;
 
-	private String name;
+	private Integer userId;
+	private String username;
+	private String email;
 
 	public Integer getUserId() {
 		return userId;
@@ -13,12 +14,19 @@ public class UserDTO {
 		this.userId = userId;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
