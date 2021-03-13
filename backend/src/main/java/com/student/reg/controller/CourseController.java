@@ -67,7 +67,7 @@ public class CourseController {
      *
      * @param name return successfully updated
      */
-    @PostMapping(value = "/updateCourse", produces = "application/json")
+    @PutMapping(value = "/updateCourse", produces = "application/json")
     public ResponseEntity<ResponseDTO> updateCourse(@RequestBody CourseDTO courseDTO) {
         ResponseDTO responseDTO = new ResponseDTO();
         responseDTO.setMessage("Success");
@@ -82,7 +82,7 @@ public class CourseController {
      *
      * @param name return successfully deleted
      */
-    @PostMapping(value = "/deleteCourse", produces = "application/json")
+    @DeleteMapping(value = "/deleteCourse", produces = "application/json")
     public ResponseEntity<ResponseDTO> deleteCourse(@RequestBody CourseDTO courseDTO) {
         ResponseDTO responseDTO = new ResponseDTO();
         responseDTO.setMessage("Success");

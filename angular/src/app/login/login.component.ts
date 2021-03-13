@@ -13,22 +13,43 @@ export class LoginComponent implements OnInit {
   password:string;
   message :any;
 
+  
+  errorMessage = 'Invalid Credentials';
+  successMessage: string;
+  invalidLogin = false;
+  loginSuccess = false;
+
   constructor(private service : AppService,
               private router : Router) { }
 
   ngOnInit(): void {
   } 
 
-  doLogin(){
-    let resp = this.service.login(this.username,this.password);
+  
+  // doLogin(){
+
+  //   let resp = this.service.login(this.username,this.password);
+  //   debugger
+  //   resp.subscribe(data=>{   
+  //     this.router.navigate(["/user"]);
+  //     return true;
+  //   });
     
-    debugger
-    
-      resp.subscribe(data=>{   
-        this.router.navigate(["/user"]);
-      })
-      
-    
+  // }
+
+
+  doLogin() {
+    this.service.authenticationService(this.username, this.password).subscribe((result)=> {
+      this.invalidLogin = false;
+      this.loginSuccess = true;
+      this.successMessage = 'Login Successful.';
+      this.router.navigate(['/user']);
+    }, () => {
+      this.invalidLogin = true;
+      this.loginSuccess = false;
+    });      
   }
+
+ 
 
 }

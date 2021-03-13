@@ -5,6 +5,7 @@
 <form id="accesspanel" action="login" method="POST">
   <h1 id="litheader">Student Applications</h1>
   <div class="inset">
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
     <p>
       <input type="text" name="username" [(ngModel)]="username" id="email" placeholder="username">
     </p>

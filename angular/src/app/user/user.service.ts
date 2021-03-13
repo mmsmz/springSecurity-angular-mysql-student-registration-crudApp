@@ -11,24 +11,24 @@ export class UserService {
 
   addUser(data){
     debugger;
-    let username = 'foo';
-    let password = 'foo';
+    let username = 'admin';
+    let password = '123';
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.post("http://localhost:8087/addUser",data , {headers}).pipe(
       map((res:any)=> res));
   }
 
   updateUser(data){
-    let username = 'foo';
-    let password = 'foo';
+    let username = 'admin';
+    let password = '123';
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
-    return this.http.post("http://localhost:8087/updateUser",data,{headers}).pipe(
+    return this.http.put("http://localhost:8087/updateUser",data,{headers}).pipe(
       map((res:any)=> res));
   }
 
   getAlluser(){
-    let username = 'foo';
-    let password = 'foo';
+    let username = 'admin';
+    let password = '123';
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.get("http://localhost:8087/getAllUsers", {headers});
   }
@@ -43,8 +43,8 @@ export class UserService {
   getUserById(data){
     debugger;
    // data.name="mg";
-   let username = 'foo';
-   let password = 'foo';
+   let username = 'admin';
+   let password = '123';
    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.get("http://localhost:8087/getUserById?userId="+data.userId, {headers}).pipe(
       map((res:any)=> res));
@@ -58,8 +58,8 @@ export class UserService {
   // }
 
   deleteUser(userDeatails){
-    let username = 'foo';
-    let password = 'foo';
+    let username = 'admin';
+    let password = '123';
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.post("http://localhost:8087/deleteUser",userDeatails,{headers}).pipe(
       map((res:any)=> res));
