@@ -8,13 +8,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CourseComponent } from './course/course.component';
 import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     CourseComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

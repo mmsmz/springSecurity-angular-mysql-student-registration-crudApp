@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
@@ -12,29 +12,44 @@ export class CourseService {
 
   addCourse(data){
     debugger;
-    return this.http.post("http://localhost:8087/addCourse",data).pipe(
+    let username = 'admin';
+    let password = '123';
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.post("http://localhost:8087/addCourse",data, {headers}).pipe(
       map((res:any)=> res));
   }
 
   updateCourse(data){
-    return this.http.post("http://localhost:8087/updateCourse",data).pipe(
+    let username = 'admin';
+    let password = '123';
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.post("http://localhost:8087/updateCourse",data,{headers}).pipe(
       map((res:any)=> res));
   }
 
   getAllCourses(){
-    return this.http.get("http://localhost:8087/getAllCourses").pipe(
+    let username = 'admin';
+    let password = '123';
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.get("http://localhost:8087/getAllCourses",{headers}).pipe(
       map((res:any)=> res));
   }
 
   getCourseById(data){
     debugger;
    // data.name="mg";
-    return this.http.get("http://localhost:8087/getCourseById?courseId="+data.courseId).pipe(
+   let username = 'admin';
+   let password = '123';
+   const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.get("http://localhost:8087/getCourseById?courseId="+data.courseId, {headers}).pipe(
       map((res:any)=> res));
   }
 
   deleteCourse(courseDetails){
-    return this.http.post("http://localhost:8087/deleteCourse",courseDetails).pipe(
+    let username = 'admin';
+    let password = '123';
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.post("http://localhost:8087/deleteCourse",courseDetails,{headers}).pipe(
       map((res:any)=> res));
   }
 

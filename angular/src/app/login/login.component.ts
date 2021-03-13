@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
   username:string;
   password:string;
   message :any;
-
   
   errorMessage = 'Invalid Credentials';
   successMessage: string;
@@ -49,6 +48,9 @@ export class LoginComponent implements OnInit {
       this.loginSuccess = false;
     });      
   }
+
+  // use boolean as a default user 
+  // subject rxjs
 
  
 
