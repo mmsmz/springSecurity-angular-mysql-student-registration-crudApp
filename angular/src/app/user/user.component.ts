@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppService } from '../app.service';
 import { UserService } from './user.service';
 
 @Component({
@@ -31,11 +32,12 @@ export class UserComponent implements OnInit {
         email: ['', [Validators.required]]
     });
     this.userDeatailsFn();
-
+    debugger
     this.userService.getAlluser().subscribe(res=>{
       // console.log(res['data'])
        this.userTable = res['data'];
     }) 
+    debugger
   }
 
   closeIcone(){

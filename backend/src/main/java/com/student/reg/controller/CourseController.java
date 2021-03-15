@@ -6,6 +6,7 @@ import com.student.reg.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,10 +15,19 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
-    @GetMapping("/")
-    public String login(){
-        return "authenticating successfully";
+//    @GetMapping("/")
+//    public String login(){
+//        return "authenticating successfully 123";
+//    }
+
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @ResponseBody
+    public String currentUserName(Authentication authentication) {
+        return authentication.getAuthorities().toString();
     }
+
+
 
     /*
      * To Add Course

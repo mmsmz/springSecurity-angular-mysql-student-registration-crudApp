@@ -11,8 +11,14 @@ export class AppService {
   // BASE_PATH: 'http://localhost:8087'
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
 
-  public username: String;
-  public password: String;
+  
+    
+   public username: String;
+   public password: String;
+
+
+// public username: String;
+// public password: String;
   
   constructor(private http: HttpClient,
               private rout: Router) { }
@@ -26,6 +32,13 @@ export class AppService {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+ ":" + password) });
     return  this.http.get("http://localhost:8087/", {headers, responseType: 'text' as 'json'});
   }
+
+  // getAlluser(username: String, password: String){
+  //   // let username = 'admin';
+  //   // let password = '123';
+  //   const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+  //   return this.http.get("http://localhost:8087/getAllUsers", {headers});
+  // }
 
   // logout() {
   //   sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);

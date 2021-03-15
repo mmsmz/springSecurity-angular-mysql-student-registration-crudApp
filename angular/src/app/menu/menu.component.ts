@@ -28,6 +28,7 @@ export class MenuComponent implements OnInit {
   handleCourse(){
     this.router.navigateByUrl('/course');
   }
+  
   handleStudent(){
     this.router.navigateByUrl('/user');
   }

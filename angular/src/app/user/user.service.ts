@@ -1,37 +1,41 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { AppService } from '../app.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private appService :AppService) {
+    debugger
+   }
 
   addUser(data){
     debugger;
-    let username = 'admin';
-    let password = '123';
+    let username = localStorage.getItem('username');
+    let password = localStorage.getItem('password');
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.post("http://localhost:8087/addUser",data , {headers}).pipe(
       map((res:any)=> res));
   }
 
   updateUser(data){
-    let username = 'admin';
-    let password = '123';
+    let username = localStorage.getItem('username');
+    let password = localStorage.getItem('password');
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.put("http://localhost:8087/updateUser",data,{headers}).pipe(
       map((res:any)=> res));
   }
 
   getAlluser(){
-    let username = 'admin';
-    let password = '123';
+    let username = localStorage.getItem('username');
+    let password = localStorage.getItem('password');
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.get("http://localhost:8087/getAllUsers", {headers});
   }
+ 
 
   // public getAlluser(){
   //   let username = 'foo';
@@ -43,8 +47,8 @@ export class UserService {
   getUserById(data){
     debugger;
    // data.name="mg";
-   let username = 'admin';
-   let password = '123';
+   let username = localStorage.getItem('username');
+    let password = localStorage.getItem('password');
    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.get("http://localhost:8087/getUserById?userId="+data.userId, {headers}).pipe(
       map((res:any)=> res));
@@ -58,8 +62,8 @@ export class UserService {
   // }
 
   deleteUser(userDeatails){
-    let username = 'admin';
-    let password = '123';
+    let username = localStorage.getItem('username');
+    let password = localStorage.getItem('password');
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.post("http://localhost:8087/deleteUser",userDeatails,{headers}).pipe(
       map((res:any)=> res));

@@ -38,11 +38,22 @@ export class LoginComponent implements OnInit {
 
 
   doLogin() {
+    debugger
     this.service.authenticationService(this.username, this.password).subscribe((result)=> {
-      this.invalidLogin = false;
+      this.invalidLogin = false;debugger
       this.loginSuccess = true;
+      
       this.successMessage = 'Login Successful.';
-      this.router.navigate(['/user']);
+      localStorage.setItem('username',this.username);
+      localStorage.setItem('password',this.password);
+      if(result = "[ADMIN]"){
+         debugger
+       this.router.navigate(['/user']);
+      }
+      if(result = "[USER]"){
+        debugger
+      this.router.navigate(['/course']);
+      }
     }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;
