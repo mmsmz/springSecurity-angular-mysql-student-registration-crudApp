@@ -1,20 +1,28 @@
 package com.student.reg.service.serviceimpl;
 
 import com.student.reg.Repository.StudentCourseServiceRepository;
+import com.student.reg.Repository.UserServiceRepository;
+import com.student.reg.dto.CourseDTO;
 import com.student.reg.dto.StudentCourseDTO;
+import com.student.reg.entity.CourseEntity;
 import com.student.reg.entity.StudentCourseEntity;
+import com.student.reg.entity.UserEntity;
 import com.student.reg.service.StudentCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class StudentCourseServiceImpl implements StudentCourseService {
 
     @Autowired
     StudentCourseServiceRepository studentCourseServiceRepository;
+
+    @Autowired
+    UserServiceRepository userServiceRepository;
 
     /*
      * To Add user
@@ -34,14 +42,20 @@ public class StudentCourseServiceImpl implements StudentCourseService {
     }
 
     @Override
-    public List<StudentCourseDTO> getStudentCourseById(Integer studentCourseId) {
-        StudentCourseEntity user = studentCourseServiceRepository.findById(studentCourseId).get();
-        StudentCourseDTO userDTO=new StudentCourseDTO();
-        userDTO.setStudentcourseID(user.getStudentCourseId());
-        userDTO.setUserId(user.getUserId());
-        userDTO.setCourseId(user.getCourseId());
-        List<StudentCourseDTO> list=new ArrayList<>();
-        list.add(userDTO);
+    public List<CourseDTO> getStudentCourseById(Integer studentId) {
+
+        UserEntity userEntity = userServiceRepository.findById(studentId).get();
+        Set<CourseEntity> courseList = userEntity.getCourses();
+
+        List<CourseDTO> list=new ArrayList<>();
+        for (CourseEntity course :courseList){
+            CourseDTO courseDTO = new  CourseDTO();
+            courseDTO.setCourseID(course.getCourseID());
+            courseDTO.setCourseName(course.getCourseName());
+            courseDTO.setCoursePrice(course.getCoursePrice());
+            list.add(courseDTO);
+        }
+
         return list;
     }
 //

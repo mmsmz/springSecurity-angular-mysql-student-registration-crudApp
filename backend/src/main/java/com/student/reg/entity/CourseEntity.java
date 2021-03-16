@@ -1,13 +1,12 @@
 package com.student.reg.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "courses")
 public class CourseEntity {
+
     @Id
     @Column(name = "courseid")
     private Integer courseID;

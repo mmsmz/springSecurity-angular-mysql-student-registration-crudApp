@@ -28,10 +28,10 @@ public class StudentCourseController {
     }
 
     @GetMapping(value = "/getStudentCourseById", produces = "application/json")
-    public ResponseEntity<ResponseDTO> getStudentCourseById(@RequestParam Integer studentCourseId) {
+    public ResponseEntity<ResponseDTO> getStudentCourseById(@RequestParam Integer studentID) {
         ResponseDTO responseDTO = new ResponseDTO();
         responseDTO.setMessage("Success");
-        responseDTO.setData(studentCourseService.getStudentCourseById(studentCourseId));
+        responseDTO.setData(studentCourseService.getStudentCourseById(studentID));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 

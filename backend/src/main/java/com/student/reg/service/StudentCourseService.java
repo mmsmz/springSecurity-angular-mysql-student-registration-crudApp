@@ -1,7 +1,9 @@
 package com.student.reg.service;
 
+import com.student.reg.dto.CourseDTO;
 import com.student.reg.dto.StudentCourseDTO;
 import com.student.reg.dto.UserDTO;
+import com.student.reg.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +12,7 @@ import java.util.List;
 public interface StudentCourseService {
 	String addStudentCourse(StudentCourseDTO studentCourseDTO);
 
-	List<StudentCourseDTO> getStudentCourseById(Integer studentCourseId);
+	List<CourseDTO> getStudentCourseById(Integer studentID);
 
 //	List<StudentCourseDTO> getAllStudentCourse();
 

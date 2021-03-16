@@ -1,13 +1,13 @@
 package com.student.reg.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
-@Entity
+@Entity(name = "JoinTableUserEntity")
 @Table(name = "users")
 public class UserEntity {
+
 	@Id
 	@Column(name = "Id")
 	private Integer id;
@@ -24,6 +24,18 @@ public class UserEntity {
 	@Column(name = "password")
 	private String password;
 
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="studentcourses", joinColumns={@JoinColumn(name="userid", referencedColumnName="id")}
+			, inverseJoinColumns={@JoinColumn(name="courseid", referencedColumnName="courseid")})
+	private Set<CourseEntity> courses;
+
+	public Set<CourseEntity> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(Set<CourseEntity> courses) {
+		this.courses = courses;
+	}
 
 	public Integer getId() {
 		return id;
