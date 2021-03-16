@@ -27,7 +27,7 @@ public class StudentCourseController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/getStudentCourseById", produces = "application/json")
+    @GetMapping(value = "/getCourseListByStudentId", produces = "application/json")
     public ResponseEntity<ResponseDTO> getStudentCourseById(@RequestParam Integer studentID) {
         ResponseDTO responseDTO = new ResponseDTO();
         responseDTO.setMessage("Success");

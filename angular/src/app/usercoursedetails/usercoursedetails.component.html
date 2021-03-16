@@ -13,6 +13,7 @@
             <input type="text" class="form-control" id="exampleInputCourseID" placeholder="courseId" formControlName="courseId">
           </div>
           <button ng-click="onSubmit()" class="btn btn-primary">Submit Or search</button>
+      
         </form>     
     </div>
   
@@ -20,16 +21,18 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Student Id</th>
-              <th scope="col">Course Id</th>
+              <th scope="col">Course ID</th>
+              <th scope="col">Course Name</th>
+              <th scope="col">Price</th>
               <th scope="col">Last</th>
               <th scope="col">Handle</th>
             </tr>
           </thead>
         <tbody>
             <tr *ngFor="let td of userTable">
-              <td>{{td.userId}}</td>
-              <td>{{td.courseId}}</td>
+              <td>{{td.courseID}}</td>
+              <td>{{td.courseName}}</td>
+              <td>{{td.coursePrice}}</td>
               <td class="update" (click)="UpdateUSer(td)"> <button type="button" class="btn btn-primary">update</button> </td>
               <td (click)="delete(td)"> <button type="button" class="btn btn-primary">delete</button> </td>
             </tr>

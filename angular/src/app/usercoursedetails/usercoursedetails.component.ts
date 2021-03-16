@@ -18,6 +18,8 @@ export class UsercoursedetailsComponent implements OnInit {
   registeredMessage: boolean = false;
   hideUserDetails: boolean=false;
 
+  
+
   constructor(
     private fb: FormBuilder,
     private userStudentDetails: UsercoursedetailsService
@@ -79,20 +81,22 @@ export class UsercoursedetailsComponent implements OnInit {
     window.location.reload();
   }
 
-  submitFilter(){
-    debugger;
-    // this.userStudentDetails.getUserById(this.contactForm.value).subscribe(res=>{
-    //   debugger;
-    //   this.userTable = res['data'];
-    // })
-  }
+  // submitFilter(){
+  //   debugger;
+  //   this.userStudentDetails.getUserById(this.contactForm.value).subscribe(res=>{
+  //     debugger;
+  //     this.userTable = res['data'];
+  //   })
+  // }
 
   onSubmit() {
     if(this.contactForm.value == ""){
       return;
-    }else{
+    }
+    else{
       debugger
-      if(this.contactForm.value.userId!=""){
+      if(this.contactForm.value.courseId!=""){
+        
       this.userStudentDetails.addUser(this.contactForm.value).subscribe(res=>{
         console.log("add", res);
         debugger
@@ -103,10 +107,11 @@ export class UsercoursedetailsComponent implements OnInit {
     }
     else{
       debugger;
-    // this.userStudentDetails.getUserById(this.contactForm.value).subscribe(res=>{
-    //   debugger;
-    //   this.userTable = res['data'];
-    // })
+    this.userStudentDetails.getUserById(this.contactForm.value).subscribe(res=>{
+      debugger;
+      this.userTable = res['data'];
+      
+    })
     }
     }
   }

@@ -36,15 +36,15 @@ export class UsercoursedetailsService {
   //   return this.http.get("http://localhost:8087/getAllStudentCourses", {headers});
   // }
 
-  // getUserById(data){
-  //   debugger;
-  //  // data.name="mg";
-  //  let username = localStorage.getItem('username');
-  //   let password = localStorage.getItem('password');
-  //  const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
-  //   return this.http.get("http://localhost:8087/getStudentCourseByIdById?userId="+data.userId, {headers}).pipe(
-  //     map((res:any)=> res));
-  // }
+  getUserById(data){
+   debugger;
+   // data.name="mg";
+   let username = localStorage.getItem('username');
+   let password = localStorage.getItem('password');
+   const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+   return this.http.get("http://localhost:8087/getCourseListByStudentId?studentID="+data.userId, {headers}).pipe(
+   map((res:any)=> res));
+  }
 
   deleteUser(userDeatails){
     let username = localStorage.getItem('username');
