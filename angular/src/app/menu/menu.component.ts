@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
@@ -20,13 +21,16 @@ export class MenuComponent implements OnInit {
   }
 
   handleLogout() {
-    
-    //this.authenticationService.logout();
-    this.router.navigateByUrl('/login');
+    this.authenticationService.logout();
+    // this.router.navigateByUrl('/login');
   }
 
   handleCourse(){
+    
+    // let username = localStorage.getItem('username');
+    // if(!username){
     this.router.navigateByUrl('/course');
+    // }
   }
   
   handleStudent(){

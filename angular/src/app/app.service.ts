@@ -30,7 +30,18 @@ export class AppService {
 
   authenticationService(username: String, password: String) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+ ":" + password) });
+    
     return  this.http.get("http://localhost:8087/", {headers, responseType: 'text' as 'json'});
+  }
+
+   logout() {
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
+    // this.username = null;
+    // this.password = null;
+    
+    this.rout.navigateByUrl('/login');
+    debugger
   }
 
   // getAlluser(username: String, password: String){
@@ -40,8 +51,9 @@ export class AppService {
   //   return this.http.get("http://localhost:8087/getAllUsers", {headers});
   // }
 
+  
   // logout() {
-  //   sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+  //   localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
   //   this.username = null;
   //   this.password = null;
   //   debugger

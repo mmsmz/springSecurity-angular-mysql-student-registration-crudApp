@@ -46,11 +46,11 @@ export class LoginComponent implements OnInit {
       this.successMessage = 'Login Successful.';
       localStorage.setItem('username',this.username);
       localStorage.setItem('password',this.password);
-      if(result = "[ADMIN]"){
+      if(result == "[ADMIN]"){
          debugger
        this.router.navigate(['/user']);
       }
-      if(result = "[USER]"){
+      else if(result == "[USER]"){
         debugger
       this.router.navigate(['/course']);
       }
@@ -58,11 +58,8 @@ export class LoginComponent implements OnInit {
       this.invalidLogin = true;
       this.loginSuccess = false;
     });      
-  }
-
+  } 
   // use boolean as a default user 
   // subject rxjs
-
- 
 
 }
