@@ -52,8 +52,6 @@ public class StudentCourseController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-
-
     @PostMapping(value = "/deleteStudentCourse", produces = "application/json")
     public ResponseEntity<ResponseDTO> deleteStudentCourse(@RequestBody StudentCourseDTO studentCourseDTO) {
         ResponseDTO responseDTO = new ResponseDTO();

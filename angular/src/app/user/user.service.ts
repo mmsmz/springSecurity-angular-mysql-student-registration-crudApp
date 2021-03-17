@@ -9,11 +9,9 @@ import { AppService } from '../app.service';
 export class UserService {
 
   constructor(private http : HttpClient, private appService :AppService) {
-    debugger
    }
 
   addUser(data){
-    debugger;
     let username = localStorage.getItem('username');
     let password = localStorage.getItem('password');
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
@@ -29,14 +27,6 @@ export class UserService {
       map((res:any)=> res));
   }
 
-  getAlluser(){
-    let username = localStorage.getItem('username');
-    let password = localStorage.getItem('password');
-    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
-    return this.http.get("http://localhost:8087/getAllUsers", {headers});
-  }
- 
-
   // public getAlluser(){
   //   let username = 'foo';
   //   let password = 'foo';
@@ -44,22 +34,21 @@ export class UserService {
   //   return  this.http.get("http://localhost:8087/getAllUsers", {headers});
   // }
 
+  getAlluser(){
+    let username = localStorage.getItem('username');
+    let password = localStorage.getItem('password');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    return this.http.get("http://localhost:8087/getAllUsers", {headers});
+  }
+
   getUserById(data){
-    debugger;
-   // data.name="mg";
    let username = localStorage.getItem('username');
     let password = localStorage.getItem('password');
    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
     return this.http.get("http://localhost:8087/getUserById?userId="+data.userId, {headers}).pipe(
       map((res:any)=> res));
   }
-  
-  // getUserById(data){
-  //   let username = 'foo';
-  //   let password = 'foo';
-  //   const headers = new HttpHeaders({Authorization: 'Basic ' +btoa(username+ ":" + password) });
-  //   return  this.http.get("http://localhost:8087/getUserById?userId="+data.userId, {headers});
-  // }
+
 
   deleteUser(userDeatails){
     let username = localStorage.getItem('username');

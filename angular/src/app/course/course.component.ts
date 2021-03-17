@@ -32,10 +32,7 @@ export class CourseComponent implements OnInit {
     this.userDeatailsFn();
     this.crsService.getAllCourses().subscribe(res=>{
       this.userTable = res.data;
-      debugger
     })
-    debugger
-
   }
 
   closeIcone(){
@@ -61,7 +58,6 @@ export class CourseComponent implements OnInit {
     //   userid : td.userid,
     //   username : td.name,
     // }
-    debugger;
     this.updateCourseDetails.controls['userId'].setValue(td.userId);
     this.updateCourseDetails.controls['name'].setValue(td.name);
     this.updateCourseDetails.controls['price'].setValue(td.price);

@@ -8,10 +8,8 @@ import { map } from 'rxjs/operators';
 export class CourseService {
   
   constructor(private http: HttpClient) { }
-
-
+  
   addCourse(data){
-    debugger;
     let username = localStorage.getItem('username');
     let password = localStorage.getItem('password');
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
@@ -36,8 +34,6 @@ export class CourseService {
   }
 
   getCourseById(data){
-    debugger;
-   // data.name="mg";
    let username = localStorage.getItem('username');
     let password = localStorage.getItem('password');
    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});

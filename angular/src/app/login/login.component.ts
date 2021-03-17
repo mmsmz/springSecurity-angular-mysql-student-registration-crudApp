@@ -24,42 +24,34 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   } 
 
-  
   // doLogin(){
-
   //   let resp = this.service.login(this.username,this.password);
   //   debugger
   //   resp.subscribe(data=>{   
   //     this.router.navigate(["/user"]);
   //     return true;
   //   });
-    
   // }
 
-
   doLogin() {
-    debugger
     this.service.authenticationService(this.username, this.password).subscribe((result)=> {
-      this.invalidLogin = false;debugger
+      this.invalidLogin = false;
       this.loginSuccess = true;
       
       this.successMessage = 'Login Successful.';
       localStorage.setItem('username',this.username);
       localStorage.setItem('password',this.password);
       if(result == "[ADMIN]"){
-         debugger
        this.router.navigate(['/user']);
       }
       else if(result == "[USER]"){
-        debugger
       this.router.navigate(['/course']);
       }
     }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;
+      
     });      
   } 
-  // use boolean as a default user 
-  // subject rxjs
 
 }

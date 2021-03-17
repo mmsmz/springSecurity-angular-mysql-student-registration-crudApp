@@ -26,11 +26,7 @@ export class MenuComponent implements OnInit {
   }
 
   handleCourse(){
-    
-    // let username = localStorage.getItem('username');
-    // if(!username){
     this.router.navigateByUrl('/course');
-    // }
   }
   
   handleStudent(){

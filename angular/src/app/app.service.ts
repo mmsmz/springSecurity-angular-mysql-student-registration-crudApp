@@ -42,22 +42,7 @@ export class AppService {
     
     this.rout.navigateByUrl('/login');
     debugger
-  }
-
-  // getAlluser(username: String, password: String){
-  //   // let username = 'admin';
-  //   // let password = '123';
-  //   const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
-  //   return this.http.get("http://localhost:8087/getAllUsers", {headers});
-  // }
-
-  
-  // logout() {
-  //   localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-  //   this.username = null;
-  //   this.password = null;
-  //   debugger
-  // }
+   }
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)

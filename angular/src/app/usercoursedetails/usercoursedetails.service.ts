@@ -29,16 +29,7 @@ export class UsercoursedetailsService {
       map((res:any)=> res));
   }
 
-  // getAlluser(){
-  //   let username = localStorage.getItem('username');
-  //   let password = localStorage.getItem('password');
-  //   const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
-  //   return this.http.get("http://localhost:8087/getAllStudentCourses", {headers});
-  // }
-
   getUserById(data){
-   debugger;
-   // data.name="mg";
    let username = localStorage.getItem('username');
    let password = localStorage.getItem('password');
    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
