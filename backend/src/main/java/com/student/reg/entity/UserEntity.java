@@ -25,7 +25,8 @@ public class UserEntity {
 	private String password;
 
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="studentcourses", joinColumns={@JoinColumn(name="userid", referencedColumnName="id")}
+	@JoinTable(name="studentcourses",
+			         joinColumns={@JoinColumn(name="userid", referencedColumnName="id")}
 			, inverseJoinColumns={@JoinColumn(name="courseid", referencedColumnName="courseid")})
 	private Set<CourseEntity> courses;
 
