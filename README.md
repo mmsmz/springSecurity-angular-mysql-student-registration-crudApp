@@ -12,8 +12,8 @@ StudentCourseDetails  - userid, userId, crsId
 
 Technologies used:
 ------------------
-Angular 
-SpringBoot 
-Spring Security
-Hibernate
-MySQL.
+1. Angular 
+2. SpringBoot 
+3. Spring Security
+4. Hibernate
+5. MySQL.
