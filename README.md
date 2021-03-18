@@ -1,6 +1,8 @@
 # springSecurity-angular-mysql-student-registration-crudApp
 
-This application is simple CRUD operation that is been implemented using spring security. 
+Application Name : Student Registration Crud Application  
+
+This application follows using the CRUD operation that is been implemented with spring security. 
 Single Microservice is been used.
 
 Database Name : Users
