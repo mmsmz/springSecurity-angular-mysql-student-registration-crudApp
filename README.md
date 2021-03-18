@@ -8,7 +8,7 @@ Table
 -----
 1. Users - userId, userName, Email
 2. Courses  - crsId, courseName, coursePrice
-3. StudentCourseDetails  - userid, userId, crsId
+3. StudentCourseDetails  - studCrsId, userId, crsId
 
 Technologies used:
 ------------------
