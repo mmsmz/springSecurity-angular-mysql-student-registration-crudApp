@@ -6,9 +6,9 @@ Single Microservice is been used.
 Database Name : Users
 Table
 -----
-Users - userId, userName, Email
-Courses  - crsId, courseName, coursePrice
-StudentCourseDetails  - userid, userId, crsId
+1. Users - userId, userName, Email
+2. Courses  - crsId, courseName, coursePrice
+3. StudentCourseDetails  - userid, userId, crsId
 
 Technologies used:
 ------------------
